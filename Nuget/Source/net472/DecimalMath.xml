@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DecimalMath</name>
+    </assembly>
+    <members>
+        <member name="T:DecimalMath.DecimalMath">
+            <summary>
+                Analogy of System.Math class for decimal types.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.E">
+            <summary>
+                Represents E.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.Epsilon">
+            <summary>
+                Represents PI.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.One">
+            <summary>
+                Represents one as decimal.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.Pi">
+            <summary>
+                Represents PI.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.Zero">
+            <summary>
+                Represents a zero as decimal.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.EInverted">
+            <summary>
+                Represents 1.0/E.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.Half">
+            <summary>
+                Represents a half as decimal.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.Log10Inv">
+            <summary>
+                Represents a log(10,E) factor.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.MaximumIterations">
+            <summary>
+                The maximum iterations count in a Taylor series.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.HalfPi">
+            <summary>
+                Represents PI/2.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.QuarterPi">
+            <summary>
+                Represents PI/4.
+            </summary>
+        </member>
+        <member name="F:DecimalMath.DecimalMath.TwoPi">
+            <summary>
+                Represents 2*PI.
+            </summary>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Abs(System.Decimal)">
+            <summary>
+                Analogy of Math.Abs.
+            </summary>
+            <param name="x">The value to get the absolute value from.</param>
+            <returns>The absolute value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Acos(System.Decimal)">
+            <summary>
+                Analogy of Math.Acos.
+            </summary>
+            <param name="x">The value to get the arcus cosinus value from.</param>
+            <returns>The arcus cosinus value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Asin(System.Decimal)">
+            <summary>
+                Analogy of Math.Asin.
+            </summary>
+            <param name="x">The value to get the arcus sinus value from.</param>
+            <returns>The arcus sinus value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Atan(System.Decimal)">
+            <summary>
+                Analogy of Math.Atan.
+            </summary>
+            <param name="x">The value to get the arcus tangens value from.</param>
+            <returns>The arcus tangens value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Atan2(System.Decimal,System.Decimal)">
+            <summary>
+                Analogy of Math.Atan2.
+            </summary>
+            <param name="y">The y value.</param>
+            <param name="x">The x value.</param>
+            <returns>The arcus tangens value from the given values.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Cos(System.Decimal)">
+            <summary>
+                Analogy of Math.Cos.
+            </summary>
+            <param name="x">The value to get the cosinus value from.</param>
+            <returns>The cosinus value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Cosh(System.Decimal)">
+            <summary>
+                Analogy of Math.Cosh.
+            </summary>
+            <param name="x">The value to get the cosinus h value from.</param>
+            <returns>The cosinus h value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Exp(System.Decimal)">
+            <summary>
+                Analogy of Math.Exp.
+            </summary>
+            <param name="x">The value to get the exponential function value from.</param>
+            <returns>The exponential function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Log(System.Decimal)">
+            <summary>
+                Analogy of Math.Log.
+            </summary>
+            <param name="x">The value to get the logarithmic function value from.</param>
+            <returns>The logarithmic function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Log10(System.Decimal)">
+            <summary>
+                Analogy of Math.Log10.
+            </summary>
+            <param name="x">The value to get the logarithmic function value to base ten from.</param>
+            <returns>The logarithmic function value to base ten from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Power(System.Decimal,System.Decimal)">
+            <summary>
+                Analogy of Math.Pow.
+            </summary>
+            <param name="value">The value to get the power function value from.</param>
+            <param name="pow">The power value to calculate with it.</param>
+            <returns>The power function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.PowerN(System.Decimal,System.Int32)">
+            <summary>
+                Analogy of Math.Pow, but with an integer value.
+            </summary>
+            <param name="value">The value to get the power function value from.</param>
+            <param name="power">The power value to calculate with it.</param>
+            <returns>The power function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Sign(System.Decimal)">
+            <summary>
+                Analogy of Math.Sign.
+            </summary>
+            <param name="x">The value to get the sign function value from.</param>
+            <returns>The sign function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Sin(System.Decimal)">
+            <summary>
+                Analogy of Math.Sin.
+            </summary>
+            <param name="x">The value to get the sinus function value from.</param>
+            <returns>The sinus function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Sinh(System.Decimal)">
+            <summary>
+                Analogy of Math.Sinh.
+            </summary>
+            <param name="x">The value to get the sinus h function value from.</param>
+            <returns>The sinus h function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Sqrt(System.Decimal,System.Decimal)">
+            <summary>
+                Analogy of Math.Sqrt.
+            </summary>
+            <param name="x">The value to get the sqrt function value from.</param>
+            <param name="epsilon">Last iteration while error is less than this epsilon.</param>
+            <returns>The sqrt function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Tan(System.Decimal)">
+            <summary>
+                Analogy of Math.Tan.
+            </summary>
+            <param name="x">The value to get the tangens function value from.</param>
+            <returns>The tangens function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.Tanh(System.Decimal)">
+            <summary>
+                Analogy of Math.Tanh.
+            </summary>
+            <param name="x">The value to get the tangens h function value from.</param>
+            <returns>The tangens h function value from the given value.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.IsInteger(System.Decimal)">
+            <summary>
+            Checks whether the decimal value is an integer or not.
+            </summary>
+            <param name="x">The value to check.</param>
+            <returns>A <c>bool</c> value indicating whether the value is an integer or not.</returns>
+        </member>
+        <member name="M:DecimalMath.DecimalMath.IsSignOfSinusPositive(System.Decimal)">
+            <summary>
+            Checks whether the sign of the sinus value is positive.
+            </summary>
+            <param name="x">The value to check.</param>
+            <returns>A <c>bool</c> value indicating whether the sign of the sinus value is positive or not.</returns>
+        </member>
+    </members>
+</doc>

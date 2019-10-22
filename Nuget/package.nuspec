@@ -22,6 +22,27 @@
 	</releaseNotes>
     <copyright>Copyright © Hämmer Electronics</copyright>
     <tags>c# csharp math mathematics decimal decimalmath</tags>
+	<dependencies>
+      <group targetFramework="net45">   
+      </group>
+	  <group targetFramework="net46">
+      </group>
+	  <group targetFramework="net47">	
+      </group>
+	  <group targetFramework="net48"> 
+      </group>
+	  <group targetFramework="net462">
+      </group>
+	  <group targetFramework="net472">   
+      </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="NETStandard.Library" version="2.0.0" />
+      </group>
+      <group targetFramework="netcoreapp2.2">
+      </group>
+	  <group targetFramework="netcoreapp3.0">
+      </group>
+    </dependencies>
   </metadata>
   <files>
 		<file src="README.md" target="" />
