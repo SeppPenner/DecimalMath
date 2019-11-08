@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>HaemmerElectronics.SeppPenner.DecimalMath</id>
-    <version>1.0.0.0</version>
+    <version>1.0.1.0</version>
     <authors>SeppPenner</authors>
     <owners>SeppPenner</owners>
     <projectUrl>https://github.com/SeppPenner/DecimalMath/</projectUrl>
@@ -18,7 +18,7 @@
 	  The assembly was written and tested in .Net Framework 4.8 and .Net Standard 2.0.
 	</description>
     <releaseNotes>
-        Version 1.0.0.0 (2019-10-22): 1.0 release.
+      Version 1.0.1.0 (2019-11-08) : Updated nuget packages.
 	</releaseNotes>
     <copyright>Copyright © Hämmer Electronics</copyright>
     <tags>c# csharp math mathematics decimal decimalmath</tags>
