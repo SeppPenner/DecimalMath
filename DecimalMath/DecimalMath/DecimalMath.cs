@@ -7,11 +7,11 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
 namespace DecimalMath
 {
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     ///     Analogy of System.Math class for decimal types.
     /// </summary>
@@ -304,6 +304,7 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the exponential function value from.</param>
         /// <returns>The exponential function value from the given value.</returns>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Exp(decimal x)
         {
             var count = 0;
@@ -403,6 +404,7 @@ namespace DecimalMath
         /// <param name="value">The value to get the power function value from.</param>
         /// <param name="pow">The power value to calculate with it.</param>
         /// <returns>The power function value from the given value.</returns>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         // ReSharper disable once UnusedMember.Global
         public static decimal Power(decimal value, decimal pow)
         {
@@ -464,6 +466,7 @@ namespace DecimalMath
         /// <param name="value">The value to get the power function value from.</param>
         /// <param name="power">The power value to calculate with it.</param>
         /// <returns>The power function value from the given value.</returns>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal PowerN(decimal value, int power)
         {
             while (true)
@@ -553,6 +556,7 @@ namespace DecimalMath
         /// <param name="x">The value to get the sqrt function value from.</param>
         /// <param name="epsilon">Last iteration while error is less than this epsilon.</param>
         /// <returns>The sqrt function value from the given value.</returns>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Sqrt(decimal x, decimal epsilon = Zero)
         {
             if (x < Zero)
