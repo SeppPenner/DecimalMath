@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net46;net462;net47;net472;net48;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;</TargetFrameworks>
+    <TargetFrameworks>net46;net462;net47;net472;net48;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
     <AssemblyName>DecimalMath</AssemblyName>
     <RootNamespace>DecimalMath</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -16,12 +16,12 @@
     <RepositoryUrl>https://github.com/SeppPenner/DecimalMath</RepositoryUrl>
     <PackageIcon>Icon.png</PackageIcon>
     <RepositoryType>Github</RepositoryType>
-    <PackageReleaseNotes>Version 1.0.2.0 (2020-06-05): Updated nuget packages, adjusted build to Visual Studio, fixes gitignore, adjusted folder structure.</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 1.1.0.0 (2020-11-23): Removed license year, moved changelog to extra file, adjusted folder structure, updated nuget packages, moved to Net 5.0.</PackageReleaseNotes>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersionTask" Version="5.3.5">
+    <PackageReference Include="GitVersionTask" Version="5.5.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
