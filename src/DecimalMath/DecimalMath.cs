@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="DecimalMath.cs" company="Hämmer Electronics">
-//   Copyright (c) 2019 All rights reserved.
+//   The project is licensed under the MIT license.
 // </copyright>
 // <summary>
 //   Analogy of System.Math class for decimal types.
