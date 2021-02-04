@@ -56,6 +56,12 @@ decimal Tanh(decimal x);
 
 The project can be found on [nuget](https://www.nuget.org/packages/HaemmerElectronics.SeppPenner.DecimalMath/).
 
+## Install
+
+```bash
+dotnet add package HaemmerElectronics.SeppPenner.DecimalMath
+```
+
 Change history
 --------------
 
