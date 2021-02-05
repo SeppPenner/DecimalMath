@@ -31,7 +31,7 @@ The assembly was written and tested in .Net 5.0.
 * https://dotnet.microsoft.com/download/dotnet-core
 * https://dotnet.microsoft.com/download/dotnet/5.0
 
-## Available methods:
+## Available methods
 
 ```csharp
 decimal Abs(decimal x);
