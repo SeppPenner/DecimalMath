@@ -10,13 +10,13 @@
     <Authors>SeppPenner</Authors>
     <Company>Hämmer Electronics</Company>
     <Copyright>Copyright © Hämmer Electronics</Copyright>
-    <Description>DecimalMath is a library to calculate mathematic functions with the decimal data type. The assembly was written and tested in .Net 5.0.</Description>
+    <Description>DecimalMath is a library to calculate mathematic functions with the decimal data type. The assembly was written and tested in .Net 6.0.</Description>
     <PackageTags>c# csharp math mathematics decimal decimalmath</PackageTags>
     <PackageProjectUrl>https://www.nuget.org/packages/HaemmerElectronics.SeppPenner.DecimalMath/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SeppPenner/DecimalMath</RepositoryUrl>
     <PackageIcon>Icon.png</PackageIcon>
     <RepositoryType>Github</RepositoryType>
-    <PackageReleaseNotes>Version 1.1.3.0 (2021-08-09): Removed support for soon deprecated NetCore 2.1.</PackageReleaseNotes>
+    <PackageReleaseNotes>Version 1.1.4.0 (2021-11-10): Updated NuGet packages, updated changelog, added support for Net6.0.</PackageReleaseNotes>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -25,11 +25,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" Version="5.6.11">
+    <PackageReference Include="GitVersion.MsBuild" Version="5.7.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
