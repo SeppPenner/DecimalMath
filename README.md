@@ -2,7 +2,6 @@ DecimalMath
 ====================================
 
 DecimalMath is a library to calculate mathematic functions with the decimal data type.
-The assembly was written and tested in .Net 6.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/w79tkhi5jy9c2uih?svg=true)](https://ci.appveyor.com/project/SeppPenner/decimalmath)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/DecimalMath.svg)](https://github.com/SeppPenner/DecimalMath/issues)

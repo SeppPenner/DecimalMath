@@ -10,7 +10,7 @@
     <Authors>SeppPenner</Authors>
     <Company>Hämmer Electronics</Company>
     <Copyright>Copyright © Hämmer Electronics</Copyright>
-    <Description>DecimalMath is a library to calculate mathematic functions with the decimal data type. The assembly was written and tested in .Net 6.0.</Description>
+    <Description>DecimalMath is a library to calculate mathematic functions with the decimal data type.</Description>
     <PackageTags>c# csharp math mathematics decimal decimalmath</PackageTags>
     <PackageProjectUrl>https://www.nuget.org/packages/HaemmerElectronics.SeppPenner.DecimalMath/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SeppPenner/DecimalMath</RepositoryUrl>
