@@ -10,7 +10,6 @@
 namespace DecimalMath
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     ///     Analogy of System.Math class for decimal types.
@@ -97,7 +96,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the arcus cosinus value from.</param>
         /// <returns>The arcus cosinus value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Acos(decimal x)
         {
             // ReSharper disable once SwitchStatementMissingSomeCases
@@ -122,7 +120,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the arcus sinus value from.</param>
         /// <returns>The arcus sinus value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Asin(decimal x)
         {
             if (x > One || x < -One)
@@ -182,7 +179,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the arcus tangens value from.</param>
         /// <returns>The arcus tangens value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Atan(decimal x)
         {
             // ReSharper disable once ConvertSwitchStatementToSwitchExpression
@@ -204,8 +200,6 @@ namespace DecimalMath
         /// <param name="y">The y value.</param>
         /// <param name="x">The x value.</param>
         /// <returns>The arcus tangens value from the given values.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-        // ReSharper disable once UnusedMember.Global
         public static decimal Atan2(decimal y, decimal x)
         {
             if (x > Zero)
@@ -240,7 +234,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the cosinus value from.</param>
         /// <returns>The cosinus value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Cos(decimal x)
         {
             while (x > TwoPi)
@@ -290,8 +283,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the cosinus h value from.</param>
         /// <returns>The cosinus h value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-        // ReSharper disable once UnusedMember.Global
         public static decimal Cosh(decimal x)
         {
             var y = Exp(x);
@@ -304,7 +295,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the exponential function value from.</param>
         /// <returns>The exponential function value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Exp(decimal x)
         {
             var count = 0;
@@ -404,11 +394,8 @@ namespace DecimalMath
         /// <param name="value">The value to get the power function value from.</param>
         /// <param name="pow">The power value to calculate with it.</param>
         /// <returns>The power function value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-        // ReSharper disable once UnusedMember.Global
         public static decimal Power(decimal value, decimal pow)
         {
-            // ReSharper disable once SwitchStatementMissingSomeCases
             switch (pow)
             {
                 case Zero:
@@ -417,7 +404,6 @@ namespace DecimalMath
                     return value;
             }
 
-            // ReSharper disable once SwitchStatementMissingSomeCases
             switch (value)
             {
                 case One:
@@ -466,7 +452,6 @@ namespace DecimalMath
         /// <param name="value">The value to get the power function value from.</param>
         /// <param name="power">The power value to calculate with it.</param>
         /// <returns>The power function value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal PowerN(decimal value, int power)
         {
             while (true)
@@ -541,8 +526,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the sinus h function value from.</param>
         /// <returns>The sinus h function value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-        // ReSharper disable once UnusedMember.Global
         public static decimal Sinh(decimal x)
         {
             var y = Exp(x);
@@ -556,7 +539,6 @@ namespace DecimalMath
         /// <param name="x">The value to get the sqrt function value from.</param>
         /// <param name="epsilon">Last iteration while error is less than this epsilon.</param>
         /// <returns>The sqrt function value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static decimal Sqrt(decimal x, decimal epsilon = Zero)
         {
             if (x < Zero)
@@ -587,8 +569,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the tangens function value from.</param>
         /// <returns>The tangens function value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-        // ReSharper disable once UnusedMember.Global
         public static decimal Tan(decimal x)
         {
             var cos = Cos(x);
@@ -605,8 +585,6 @@ namespace DecimalMath
         /// </summary>
         /// <param name="x">The value to get the tangens h function value from.</param>
         /// <returns>The tangens h function value from the given value.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-        // ReSharper disable once UnusedMember.Global
         public static decimal Tanh(decimal x)
         {
             var y = Exp(x);
