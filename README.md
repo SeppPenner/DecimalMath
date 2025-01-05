@@ -11,7 +11,7 @@ DecimalMath is a library to calculate mathematic functions with the decimal data
 [![Nuget](https://img.shields.io/badge/DecimalMath-Nuget-brightgreen.svg)](https://www.nuget.org/packages/HaemmerElectronics.SeppPenner.DecimalMath/)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/HaemmerElectronics.SeppPenner.DecimalMath.svg)](https://www.nuget.org/packages/HaemmerElectronics.SeppPenner.DecimalMath/)
 [![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/DecimalMath/badge.svg)](https://snyk.io/test/github/SeppPenner/DecimalMath)
-[![Gitter](https://badges.gitter.im/DecimalMath/community.svg)](https://gitter.im/DecimalMath/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Gitter](https://img.shields.io/matrix/DecimalMath_community%3Agitter.im?server_fqdn=matrix.org)](https://matrix.to/#/#DecimalMath_community:gitter.im)
 [![Blogger](https://img.shields.io/badge/Follow_me_on-blogger-orange)](https://franzhuber23.blogspot.de/)
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?logo=patreon&logoColor=white)](https://patreon.com/SeppPennerOpenSourceDevelopment)
 [![PayPal](https://img.shields.io/badge/PayPal-00457C?logo=paypal&logoColor=white)](https://paypal.me/th070795)
