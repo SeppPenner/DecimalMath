@@ -172,10 +172,18 @@ Do not silently "clean up" these, they are existing behaviour:
 5. Tag the commit with the plain version number, no `v` prefix (`1.2.6`, `1.2.5`, ...). The existing
    tags are lightweight tags, create new ones the same way.
 6. Push the commits and the tag.
-7. Only then run `BuildAndPushPackage.bat` if the package is to be published. It deletes every `bin`
-   and `obj` below `src`, builds `-c Release` and pushes the `.nupkg` and the `.snupkg` to nuget.org
-   and to GitHub Packages, using `NUGET_API_KEY` and `GITHUB_API_KEY` from the environment. The tag
-   has to exist first, otherwise GitVersion burns a prerelease version into the published package.
+7. Only then run `BuildAndPushPackage.bat` from the repository root if the package is to be
+   published. It deletes every `bin` and `obj` below `src`, builds `-c Release` and pushes the
+   `.nupkg` and the `.snupkg` to nuget.org and to GitHub Packages, using `NUGET_API_KEY` and
+   `GITHUB_API_KEY` from the environment. The tag has to exist first, otherwise GitVersion burns a
+   prerelease version into the published package.
+
+`Updating.md` holds the same steps for the reader of the repository, both files have to stay in sync.
+The four push lines in the batch are prefixed with `@`, because `ECHO` is on at that point and cmd
+echoes a command line after the variable expansion, which would write both API keys into the console
+output. Do not remove those prefixes. Deleting `bin` before a push matters for the same reason it is
+in the batch: `GeneratePackageOnBuild` leaves a `.nupkg` of every intermediate build in there, and the
+push uses the wildcard `*.nupkg`.
 
 The version in `Changelog.md` has four parts (`1.2.7.0`), the tag has three (`1.2.7`). GitVersion
 turns the tag into the assembly and package version, so an untagged commit produces something like
