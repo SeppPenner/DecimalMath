@@ -20,7 +20,7 @@ public static class DecimalMath
     public const decimal E = 2.7182818284590452353602874713526624977572470936999595749M;
 
     /// <summary>
-    ///     Represents PI.
+    ///     Represents the tolerance that is used to decide whether a value is an integer.
     /// </summary>
     public const decimal Epsilon = 0.0000000000000000001M;
 
@@ -81,7 +81,9 @@ public static class DecimalMath
     /// <returns>The absolute value from the given value.</returns>
     public static decimal Abs(decimal x)
     {
-        if (x <= Zero)
+        // Zero is compared with the smaller operator only, negating it would return a decimal
+        // that carries the sign bit and that decimal.IsNegative reports as negative.
+        if (x < Zero)
         {
             return -x;
         }
@@ -331,6 +333,13 @@ public static class DecimalMath
             throw new ArgumentException("x must be greater than zero");
         }
 
+        // Known value. The series below returns 1E-28 for it, because the constants E and
+        // EInverted are rounded decimals whose product is not exactly one.
+        if (x == One)
+        {
+            return Zero;
+        }
+
         var count = 0;
         while (x >= One)
         {
@@ -395,7 +404,6 @@ public static class DecimalMath
         switch (value)
         {
             case One:
-            case Zero when pow == Zero:
                 return One;
             case Zero when pow > Zero:
                 return Zero;
@@ -414,24 +422,16 @@ public static class DecimalMath
             throw new Exception("Invalid Operation: negative base and non-integer power");
         }
 
-        if (isPowerInteger && value > Zero)
+        // A negative base is passed on to PowerN as well. The repeated multiplication keeps the
+        // sign and stays exact, the detour over Exp and Log returned values such as
+        // -8.000000000000000000000000008 for Power(-2, 3).
+        if (isPowerInteger)
         {
             var powerInt = (int)pow;
             return PowerN(value, powerInt);
         }
 
-        if (!isPowerInteger || value >= Zero)
-        {
-            return Exp(pow * Log(value));
-        }
-
-        var powerInt2 = (int)pow;
-        if (powerInt2 % 2 == 0)
-        {
-            return Exp(pow * Log(-value));
-        }
-
-        return -Exp(pow * Log(-value));
+        return Exp(pow * Log(value));
     }
 
     /// <summary>
@@ -470,9 +470,15 @@ public static class DecimalMath
                     q--;
                 }
 
-                // value^i -> value^(2*i)
-                current *= current;
                 q /= 2;
+
+                // value^i -> value^(2*i). Only squared while another bit is left, because the
+                // squaring after the last relevant bit is never used and made representable
+                // results such as PowerN(10, 20) throw an OverflowException.
+                if (q > 0)
+                {
+                    current *= current;
+                }
             }
 
             return prod;
@@ -559,7 +565,7 @@ public static class DecimalMath
         var cos = Cos(x);
         if (cos == Zero)
         {
-            throw new ArgumentException(nameof(x));
+            throw new ArgumentException("The tangens is not defined where the cosinus value is zero", nameof(x));
         }
 
         return Sin(x) / cos;
@@ -584,8 +590,9 @@ public static class DecimalMath
     /// <returns>A <c>bool</c> value indicating whether the value is an integer or not.</returns>
     private static bool IsInteger(decimal x)
     {
-        var longValue = (long)x;
-        return Abs(x - longValue) <= Epsilon;
+        // decimal.Truncate is used instead of a cast to long, a cast overflows for values
+        // outside the long range and a check must not throw.
+        return Abs(x - decimal.Truncate(x)) <= Epsilon;
     }
 
     /// <summary>
@@ -628,6 +635,6 @@ public static class DecimalMath
         }
 
         // Will not be reached.
-        throw new ArgumentException(nameof(x));
+        throw new ArgumentException("The value could not be truncated to the interval [-2*PI;2*PI]", nameof(x));
     }
 }

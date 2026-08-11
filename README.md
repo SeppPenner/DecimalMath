@@ -30,7 +30,7 @@ decimal Abs(decimal x);
 decimal Acos(decimal x);
 decimal Asin(decimal x);
 decimal Atan(decimal x);
-decimal Atan2(decimal x);
+decimal Atan2(decimal y, decimal x);
 decimal Cos(decimal x);
 decimal Cosh(decimal x);
 decimal Exp(decimal x);

@@ -30,9 +30,6 @@ Everything else in `src`:
   nothing else.
 - `src/DecimalMath.sln.DotSettings`: a ReSharper user dictionary (`arcus`, `cosinus`, `Haemmer`,
   `H_00E4mmer`, `Sinh`, `tangens`, `Tanh`). Leave it alone.
-- `src/GlobalUsings.cs`: a leftover from a Visual Studio template, a `public class Class1` in a file
-  named `GlobalUsings.cs`. It is tracked, but it sits outside the project directory and is therefore
-  not compiled. It has no purpose.
 
 Repository root: `README.md` (the user documentation, with the badge list and the method list),
 `Changelog.md`, `Updating.md` (the five release steps), `License.txt` (MIT), `Icon.png` (the package
@@ -103,13 +100,17 @@ Do not silently "clean up" these, they are existing behaviour:
   Newton iterations over `decimal`, so `Log10(10)` returns `1.0000000000000000000000000003`,
   `Exp(Log(7))` returns `7.0000000000000000000000000014` and `Sin(0.7)^2 + Cos(0.7)^2` returns
   `0.9999999999999999999999999999`. Compare with a tolerance, never with `==`, and do not "fix" the
-  last digits, that is what a 28 digit series costs.
+  last digits, that is what a 28 digit series costs. The exception is `Power` with an integer power,
+  it goes through `PowerN`, which only multiplies and therefore stays exact, while a non-integer
+  power goes through `Exp(pow * Log(value))` and inherits the error of both series.
 - **`MaximumIterations` is 100.** `Cos` and `Log` stop after 100 series terms even if the value has
   not converged yet, `Asin`, `Exp` and `Sqrt` instead run until two consecutive values are equal.
   That is why the accuracy of `Log` drops for arguments far away from `1`.
 - **`Epsilon` is not a machine epsilon.** The public constant `Epsilon` (`1e-19`) is the tolerance
-  that `IsInteger` uses to decide whether a power is an integer. Its doc comment says
-  "Represents PI.", which is a copy and paste error from `Pi`.
+  that `IsInteger` uses to decide whether a power is an integer.
+- **`Power` casts an integer power to `int`.** A power above `int.MaxValue` throws an
+  `OverflowException` before anything is calculated. Such a result exceeds the range of `decimal`
+  anyway, unless the base lies between `-1` and `1`.
 - **`Sqrt` iterates to an exact fixed point by default.** The `epsilon` parameter defaults to `Zero`,
   so the Newton loop runs until two iterations produce exactly the same `decimal`. It terminates for
   every value tried so far, including `decimal.MaxValue`, but the parameter exists for the case
