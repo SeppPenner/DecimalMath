@@ -8,8 +8,11 @@ data type, so that a calculation keeps 28 significant decimal digits instead of 
 [HaemmerElectronics.SeppPenner.DecimalMath](https://www.nuget.org/packages/HaemmerElectronics.SeppPenner.DecimalMath/),
 so every change ends in a package, not in an application.
 
-One solution `src/DecimalMath.sln` with exactly one project
-`src/DecimalMath/DecimalMath.csproj`, a library that multi targets `net8.0;net10.0`.
+One solution `src/DecimalMath.sln` with two projects:
+
+- `src/DecimalMath/DecimalMath.csproj`, the library itself, multi targets `net8.0;net10.0`.
+- `src/DecimalMath.Tests/DecimalMath.Tests.csproj`, MSTest, single target `net10.0`, added in
+  version 1.2.7.0.
 
 Layout inside `src/DecimalMath`:
 
@@ -23,6 +26,16 @@ Layout inside `src/DecimalMath`:
 - `GlobalUsings.cs`: currently only the `#pragma warning disable IDE0065` block with no using in
   it, because the library needs nothing beyond `ImplicitUsings`.
 
+Layout inside `src/DecimalMath.Tests`:
+
+- `DecimalMathTests.cs`: the only test class, 30 tests. The functions are checked against their
+  counterpart in `System.Math` with a tolerance, the values that the implementation reaches by
+  multiplication alone are checked exactly, and every exception of the library has its own test.
+  Four of the tests are regression tests for the bugs fixed in version 1.2.7.0, they fail against
+  the code of 1.2.6.0: `AbsReturnsAZeroWithoutTheSignBit`, `LogOfOneIsExactlyZero`,
+  `PowerReturnsExactResultsForIntegerPowers` and `PowerNReturnsRepresentableResultsWithoutAnOverflow`.
+- `GlobalUsings.cs`: the usings of the test project, including the alias `DecMath`.
+
 Everything else in `src`:
 
 - `src/.editorconfig`: the code conventions, see below.
@@ -34,12 +47,16 @@ Everything else in `src`:
 Repository root: `README.md` (the user documentation, with the badge list and the method list),
 `Changelog.md`, `Updating.md` (the five release steps), `License.txt` (MIT), `Icon.png` (the package
 icon), `BuildAndPushPackage.bat`, `Delete-BIN-OBJ-Folders.bat`, `.editorconfig` is only in `src`.
-There is no test project, no `HowToUse.md`, no `.github` folder and no pipeline file.
+There is no `HowToUse.md`, no `.github` folder and no pipeline file.
 
 ## Build
 
 ```powershell
 dotnet build src/DecimalMath.sln -c Release
+```
+
+```powershell
+dotnet test src/DecimalMath.sln
 ```
 
 - `GeneratePackageOnBuild` is on, so every build writes
@@ -58,9 +75,16 @@ dotnet build src/DecimalMath.sln -c Release
 - Restore needs nuget.org. If a private feed is configured globally on the machine and answers 404
   for public packages, restore fails with `NU1301`. Then build with an explicit source:
   `dotnet build src/DecimalMath.sln --source https://api.nuget.org/v3/index.json`.
-- There is nothing to run. The library has no entry point, so a behaviour change is verified by
-  calling the function in question and comparing the result against `System.Math`, not by starting
-  a program.
+- `dotnet test` runs 30 tests, they need no network and no file outside the repository. Never claim a
+  test run happened without running it.
+- The MSTest analyzers are active and their diagnostics are errors here as well. `MSTEST0032`
+  rejects an `Assert.AreEqual` of two compile time constants, which is why the constants of the
+  library are checked through the helper `AssertMatchesSystemMath` and not directly. MSTest 4 no
+  longer has `Assert.ThrowsException`, the tests use `Assert.ThrowsExactly<T>` with a block bodied
+  lambda.
+- There is nothing to run. The library has no entry point, so a behaviour change beyond the tests is
+  verified by calling the function in question and comparing the result against `System.Math`, not
+  by starting a program.
 
 ## Code conventions
 
@@ -94,8 +118,10 @@ Do not silently "clean up" these, they are existing behaviour:
 
 - **The class is named like its namespace.** `DecimalMath.DecimalMath` is a static class inside the
   namespace `DecimalMath`. From a nested namespace such as `DecimalMath.Tests` the plain name
-  `DecimalMath` binds to the namespace, not to the class, so calling code needs an alias in its
-  `GlobalUsings.cs`. Renaming the class would be a breaking change for every consumer.
+  `DecimalMath` binds to the namespace, not to the class, which is why the test project aliases it as
+  `global using DecMath = DecimalMath.DecimalMath;` and calls `DecMath.Sin(x)`. The same applies to a
+  cref in an XML doc comment, so the test file names the class in plain text. Renaming the class would
+  be a breaking change for every consumer.
 - **The results are close to `System.Math`, not equal to it.** The functions are Taylor series and
   Newton iterations over `decimal`, so `Log10(10)` returns `1.0000000000000000000000000003`,
   `Exp(Log(7))` returns `7.0000000000000000000000000014` and `Sin(0.7)^2 + Cos(0.7)^2` returns
