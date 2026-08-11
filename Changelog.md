@@ -1,6 +1,7 @@
 Change history
 --------------
 
+* **Version 1.2.7.0 (2026-08-11)** : Removed support for Net9.0 as it is out of support, added support for Net10.0, updated NuGet packages, added a test project, fixed the unnecessary overflow of PowerN, fixed the precision of Power for negative bases with integer powers, Log returns exactly zero for one now, Abs no longer returns a negative zero.
 * **Version 1.2.6.0 (2024-11-24)** : Removed support for Net6.0, added support for Net9.0, updated NuGet packages.
 * **Version 1.2.5.0 (2024-05-16)** : Removed support for Net7.0.
 * **Version 1.2.4.0 (2023-12-07)** : Updated NuGet packages, added support for Net8.0.
