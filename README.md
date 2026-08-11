@@ -18,7 +18,7 @@ DecimalMath is a library to calculate mathematic functions with the decimal data
 
 ## Available for
 * Net 8.0
-* Net 9.0
+* Net 10.0
 
 ## Net Core and Net Framework latest and LTS versions
 * https://dotnet.microsoft.com/download/dotnet

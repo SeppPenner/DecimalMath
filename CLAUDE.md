@@ -9,7 +9,7 @@ data type, so that a calculation keeps 28 significant decimal digits instead of 
 so every change ends in a package, not in an application.
 
 One solution `src/DecimalMath.sln` with exactly one project
-`src/DecimalMath/DecimalMath.csproj`, a library that multi targets `net8.0;net9.0`.
+`src/DecimalMath/DecimalMath.csproj`, a library that multi targets `net8.0;net10.0`.
 
 Layout inside `src/DecimalMath`:
 
@@ -54,7 +54,8 @@ dotnet build src/DecimalMath.sln -c Release
   into `CS1591` and therefore into a build error. That is the mechanism behind the documentation
   rule below, not a style preference.
 - `NU1803` (HTTP source usage during restore) is the one warning suppressed via `NoWarn`. Fix
-  warnings instead of extending that list.
+  warnings instead of extending that list. `NuGetAudit` and `NuGetAuditMode=all` are on, so a
+  vulnerable transitive package fails the build too.
 - Versions come from GitVersion.MsBuild out of the git tags, for example `1.2.7-5` for the fifth
   commit after tag `1.2.6`. Never edit a version property or an assembly version by hand.
 - Restore needs nuget.org. If a private feed is configured globally on the machine and answers 404
