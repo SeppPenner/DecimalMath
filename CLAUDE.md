@@ -226,9 +226,8 @@ The version in `Changelog.md` has four parts (`1.2.7.0`), the tag has three (`1.
 turns the tag into the assembly and package version, so an untagged commit produces something like
 `1.2.7-5`. There is no installer to build.
 
-nuget.org holds every tagged version from 1.0.0 to 1.2.7. On 2026-11-24 no tag had a GitHub release
-yet, and GitHub Packages held 1.1.0 to 1.2.0 and 1.2.4 to 1.2.7, the older history there is
-incomplete.
+nuget.org and GitHub Packages hold every tagged version from 1.0.0 to 1.2.8, and every tag has a
+GitHub release. The missing versions on GitHub Packages and the releases were added on 2026-11-24.
 
 ## Git
 
