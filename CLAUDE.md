@@ -10,8 +10,8 @@ so every change ends in a package, not in an application.
 
 One solution `src/DecimalMath.sln` with two projects:
 
-- `src/DecimalMath/DecimalMath.csproj`, the library itself, multi targets `net8.0;net10.0`.
-- `src/DecimalMath.Tests/DecimalMath.Tests.csproj`, MSTest, single target `net10.0`, added in
+- `src/DecimalMath/DecimalMath.csproj`, the library itself, multi targets `net10.0;net11.0`.
+- `src/DecimalMath.Tests/DecimalMath.Tests.csproj`, MSTest, single target `net11.0`, added in
   version 1.2.7.0.
 
 Layout inside `src/DecimalMath`:
@@ -50,6 +50,9 @@ icon), `BuildAndPushPackage.bat`, `Delete-BIN-OBJ-Folders.bat`, `.editorconfig` 
 There is no `HowToUse.md`, no `.github` folder and no pipeline file.
 
 ## Build
+
+Install the .NET 11 SDK to build the solution. The library targets `net10.0` and `net11.0`, the test
+project `net11.0`. Keep the test project on the newest framework the library targets.
 
 ```powershell
 dotnet build src/DecimalMath.sln -c Release
